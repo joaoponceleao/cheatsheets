@@ -3,10 +3,604 @@ cheatsheet do
     docset_file_name 'Vim'
     keyword 'vimc'
     source_url 'http://cheat.kapeli.com'
-    
+
+    category do
+        id 'JP Buffers'
+        entry do
+            command ':bun/:bd/:bw to close the window as well'
+            command ':BUN/:BD/:BW to leave the window intact'
+            name 'Unload/delete/wipe a buffer'
+        end
+        entry do
+            command '<Leader>bu'
+            name 'Unload buffer'
+            notes 'Keeps split'
+        end
+        entry do
+            command '<Leader>bd'
+            name 'Delete buffer'
+            notes 'Keeps split'
+        end
+        entry do
+            command '<Leader>bw'
+            name 'Wipe buffer'
+            notes 'Keeps split'
+        end
+        entry do
+            command '<Leader>bb'
+            name 'Go back to previous recent buffer'
+        end
+        entry do
+            command '<Leader>bf'
+            name 'Go forward to next recent buffer'
+        end
+        entry do
+            command '<Leader>ba'
+            name 'Go to alternate buffer'
+        end
+        entry do
+            command '<Leader>bn'
+            name 'Go to next buffer'
+        end
+        entry do
+            command '<Leader>bh'
+            name 'Go to last edited buffer'
+        end
+        entry do
+            command '<C-b>'
+            name 'Show buffer list'
+            notes 'CtrlP - buffers.'
+        end
+        entry do
+            command 'bb'
+            name 'Toggle buffergator buffer list'
+        end
+        entry do
+            command 'bn'
+            name 'Flip through mru buffers without opening buffer list.'
+        end
+        entry do
+            command 'r'
+            name 'Refresh buffergator'
+            notes 'In buffergator window'
+        end
+        entry do
+            command 'd/x'
+            name 'Delete / wipe buffer'
+            notes 'In buffergator window'
+        end
+        entry do
+            command 'o'
+            command '<CR>'
+            name 'Open buffer'
+            notes 'In buffergator window'
+        end
+        entry do
+            command 's'
+            command '<C-v>'
+            name 'Open buffer in vsplit'
+            notes 'In buffergator window'
+        end
+        entry do
+            command 'i'
+            command '<C-s>'
+            name 'Open buffer in split'
+            notes 'In buffergator window'
+        end
+        entry do
+            command 'O'
+            command '<Space>'
+            name 'Preview buffer'
+            notes 'In buffergator window'
+        end
+    end
+
+    category do
+        id 'JP Window Management'
+
+        entry do
+            command '<leader>zw'
+            name 'Zoom window'
+        end
+        entry do
+            command '<C-w>o'
+            name 'Toggle Zoom Window'
+        end
+        entry do
+            command '<C-w><C-w>'
+            name 'Switch splits'
+        end
+        entry do
+            command '<C-j>'
+            name 'Go down a split'
+        end
+        entry do
+            command '<C-k>'
+            name 'Go up a split'
+        end
+        entry do
+            command '<C-l>'
+            name 'Go right a split'
+        end
+        entry do
+            command '<C-h>'
+            name 'Go left a split'
+        end
+        entry do
+            command '<Leader>vv'
+            name 'Split window vertically'
+        end
+        entry do
+            command '<Leader>hh'
+            name 'Split window horizontally'
+        end
+    end
+
+    category do
+        id 'JP File management'
+
+        entry do
+            command '<Leader>r'
+            command '<C-e>'
+            name 'Ranger explorer'
+        end
+        entry do
+            command '<C-k>'
+            command '<F1>'
+            name 'Toggle NerdTree'
+        end
+        entry do
+            command '<Leader>o'
+            command '<F2>'
+            name 'NerdTree Find'
+        end
+        entry do
+            command '?'
+            name 'NerdTree help'
+        end
+        entry do
+            command 'o'
+            command '<enter>'
+            name 'NerdTree open'
+        end
+        entry do
+            command 't'
+            name 'NerdTree open in tab'
+        end
+        entry do
+            command 'i'
+            name 'NerdTree open in split'
+        end
+        entry do
+            command 's'
+            name 'NerdTree open in vsplit'
+        end
+        entry do
+            command 'D'
+            name 'NerdTree delete'
+        end
+        entry do
+            command 'u'
+            name 'NerdTree move tree root up one dir'
+        end
+        entry do
+            command 'r/R'
+            name 'NerdTree refresh current dir/root'
+        end
+    end
+
+    category do
+        id 'JP CtrlP'
+
+        entry do
+            command '<C-p>'
+            name 'CtrlP'
+        end
+        entry do
+            command '<Leader>mm'
+            name 'CtrlP mru only'
+        end
+        entry do
+            command '<C-b>'
+            name 'CtrlP buffers only'
+        end
+        entry do
+            command '<C-t>'
+            name 'CtrlP buffer tags only'
+        end
+        entry do
+            command '<C-u>'
+            name 'CtrlP undo list'
+        end
+        entry do
+            command '<C-l>'
+            name 'CtrlP buffer lines only'
+        end
+    end
+
+    category do
+        id 'JP Editing'
+
+        entry do
+            command '<leader>aa'
+            name 'Select all'
+        end
+        entry do
+            command '[V]gc'
+            command '[N]gcc'
+            command 'gc[motion]'
+            name 'Toggle Commentary'
+            notes 'gc + motion or selection'
+        end
+        entry do
+            command '<C-/>'
+            name 'Toggle comment on line or visual selection'
+        end
+        entry do
+            command '>>'
+            command '<C-]>'
+            name 'Indent'
+        end
+        entry do
+            command '<<'
+            command '<C-[>'
+            name 'Unindent'
+        end
+        entry do
+            command '<C-d>'
+            name 'Toggle multiple cursors / next virtual cursor'
+            notes 'Toggles visual mode - Press v or c to go back to normal or insert mode and apply motions.'
+        end
+        entry do
+            command '<C-p>'
+            name 'Go to previous virtual cursor'
+            notes 'In multicursor mode.'
+        end
+        entry do
+            command '<C-x>'
+            name 'Skip current virtual cursor'
+            notes 'In multicursor mode.'
+        end
+    end
+
+    category do
+        id 'JP Search'
+
+        entry do
+            command '<Space>/'
+        name 'Inc search fuzzy + easy motion'
+        end
+        entry do
+            command '/'
+            name 'Inc search forward'
+        end
+        entry do
+            command '?'
+            name 'Inc search backward'
+        end
+        entry do
+            command 'g/'
+            name 'Inc search stay'
+        end
+        entry do
+            command '<TAB>/<S-TAB>'
+            name 'Inc search next/previous match while searching'
+        end
+        entry do
+            command 'z/'
+            name 'Inc search fuzzy forward'
+        end
+        entry do
+            command 'z?'
+            name 'Inc search fuzzy backward'
+        end
+        entry do
+            command 'zg'
+            name 'Inc search fuzzy stay'
+        end
+        entry do
+            command 's{char}{char}'
+            name 'easy motion sneak {char}{char}'
+        end
+        entry do
+            command './'
+            name 'Inc search fuzzy + easy motion'
+        end
+        entry do
+            command '<leader><leader>w'
+            name 'easy motion word forward'
+        end
+        entry do
+            command '<leader><leader>b'
+            name 'easy motion word backward'
+        end
+        entry do
+            command '<leader><leader>f{char}'
+            name 'easy motion find {char} forward'
+        end
+        entry do
+            command '<leader><leader>t{char}'
+            name 'easy motion find {char} backward'
+        end
+    end
+
+    category do
+        id 'JP Alignment'
+
+        entry do
+            command 'ga'
+            name 'Align'
+        end
+        entry do
+            command 'vipga='
+            name 'Motion + Align at ='
+            notes '[V]isually select [I]nner [P]aragraph and [a]lign around [=]'
+        end
+        entry do
+            command 'gaip='
+            name 'Align + Motion at ='
+            notes '[A]lign for [I]nner [P]aragraph around [=]'
+        end
+        entry do
+            command 'ga (align)'
+            command 'ip (motion)'
+            command '[Optional] <Enter> to cycle between left, right, center align'
+            command '[Optional] (delimiter - default: 1): 1, 2, *, -, -2'
+            command '(Delimiter key) <Space>,=,etc....'
+            command 'gaip='
+            name 'Alignment strategy'
+            notes 'Align [ga] at motion [ip] around ='
+        end
+    end
+
+    category do
+        id 'JP Next/Previous'
+        entry do
+            command ']a'
+            command '[a'
+            notes 'A = First/Last'
+            name 'Next/Previous arg'
+        end
+        entry do
+            command ']b'
+            command '[b'
+            notes 'B = First/Last'
+            name 'bnext/bprevious'
+        end
+        entry do
+            command ']l'
+            command '[l'
+            notes 'L = First/Last'
+            name 'lnext/lprevious'
+        end
+        entry do
+            command ']q'
+            command '[q'
+            name 'Quickfix cnext/cprevious'
+        end
+        entry do
+            command ']t'
+            command '[t'
+            notes 'T = First/Last'
+            name 'tnext/tprevious'
+        end
+        entry do
+            command ']n'
+            command '[n'
+            name 'Next previous diff'
+        end
+        entry do
+            command ']p'
+            command '[p'
+            name 'Paste after/before linewise'
+        end
+        entry do
+            command ']<Space>'
+            command '[<Space>'
+            name 'Add newline after/before cursor'
+        end
+    end
+
+    category do
+        id 'JP Language and Completion'
+
+        entry do
+            command '<Leader>e'
+            name 'Show errors'
+        end
+        entry do
+            command '<Leader>yd'
+            name 'YCM - GoTo'
+            notes 'Goes to most relevant (defs/assigns).'
+        end
+        entry do
+            command '<Leader>yk'
+            name 'YCM - GoToDoc'
+        end
+        entry do
+            command '<Leader>pr'
+            name 'Jedi rename variables'
+        end
+        entry do
+            command '<Leader>pu'
+            name 'Jedi show usages'
+        end
+        entry do
+            command '<Leader>pg'
+            name 'Jedi goto'
+            notes 'Tries definitions, and then assignments'
+        end
+        entry do
+            command '<Leader>pa'
+            name 'Jedi goto assignments'
+        end
+        entry do
+            command '<Leader>pd'
+            name 'Jedi goto definitions'
+        end
+        entry do
+            command '<Leader>pk'
+            name 'Jedi goto documentation'
+        end
+        entry do
+            command '<C-i>'
+            name 'Python import isort'
+        end
+        entry do
+            command ':PyenvActivate'
+            command ':PyenvDeactivate'
+        end
+    end
+
+    category do
+    id 'JP Tools'
+        entry do
+            command '<Leader>u'
+            command '<F4>'
+            name 'Toggle UndoTree'
+            notes '? = quickhelp inside UndoTree'
+        end
+        entry do
+            command 'U'
+            name 'redo'
+        end
+        entry do
+            command ':Obsess'
+            command ':Obsess!'
+            name 'Toggle Obsession/Delete session'
+        end
+        entry do
+            command '<C-t>'
+            command '<F3>'
+            name 'Toggle Tagbar'
+            notes '? inside tagbar shows mappings'
+        end
+        entry do
+            command ':CopyRTF'
+            name 'Copy as rtf'
+            notes 'Copies current buffer or selection into the system clipboard as rtf'
+        end
+        entry do
+            command ':Dash {opt term} {opt docset}'
+            name 'Search in Dash'
+            notes 'Will search for {term} or word under cursor in relevant docset'
+        end
+        entry do
+            command ':Dash! {opt term}'
+            name 'Search in Dash globally'
+            notes 'Will search for {term} or word under cursor in all docsets'
+        end
+        entry do
+            command '<Leader>pm'
+            name 'Preview Markdown'
+        end
+    end
+
+    category do
+        id 'JP Tasks'
+
+        entry do
+            command '<Leader>tt'
+            name 'Generate tasklist'
+        end
+        entry do
+            command '<Leader>tw'
+            name 'Toggle tasklist window'
+        end
+        entry do
+            command ']t / ]T'
+            name 'Jump to next / last task'
+        end
+        entry do
+            command '[t / [T'
+            name 'Jump to previous / first task'
+        end
+        entry do
+            command '<Leader>tc'
+            name 'Clear task marks'
+        end
+        entry do
+            command '<Leader>tm'
+            name 'Show task marks'
+        end
+        entry do
+            command ':tdir'
+            name 'Generate tasks for all files in current dir'
+        end
+        entry do
+            command ':tall'
+            name 'Generate tasks for all files in current dir and subdirs'
+        end
+    end
+
+    category do
+        id 'JP Git'
+
+        entry do
+            command '<Leader>gs'
+            name 'Git status'
+            notes 'g? = help, Press - to add/reset changes or p to add/reset patch'
+        end
+        entry do
+            command '<Leader>gd'
+            name 'Git diff'
+        end
+        entry do
+            command ':Gblame'
+            name 'Fugitive - Git blame interactive'
+            notes 'Press enter on line to edit commit or o to open commit in split. :Gedit goes back to work tree.'
+        end
+        entry do
+            command ':Gcommit'
+            command ':Gmerge'
+            command ':Gpull'
+            command ':Gpush'
+            command ':Gwrite'
+            command ':Glog'
+            name 'Git fugitive commands'
+            notes 'Gwrite is effectively git add. Glog shows revisions in quickfix window.'
+        end
+        entry do
+            command ']c'
+            command '[c'
+            name 'Next/previous gitgutter hunk'
+        end
+        entry do
+            command '<Leader>hp'
+            command '<Leader>hs'
+            command '<Leader>hr'
+            name 'Preview/Stage/Revert gitgutter hunk'
+        end
+    end
+
+    category do
+        id 'JP Folds'
+
+        entry do
+            command 'za'
+            name 'Toggle Fold'
+        end
+        entry do
+            command 'zo {optional count}'
+            name 'Open fold'
+        end
+        entry do
+            command 'zc {optional count}'
+            name 'Close fold'
+        end
+        entry do
+            command 'zR'
+            name 'Open all folds'
+        end
+        entry do
+            command 'zM'
+            name 'Close all folds'
+        end
+    end
+
     category do
         id 'How to Exit'
-        
+
         entry do
             command ':q[uit]'
             name 'Quit Vim'
@@ -49,12 +643,12 @@ cheatsheet do
             name 'Quit current file and exit'
             notes 'Same as `:q!`'
         end
-        
+
     end
 
     category do
         id 'Editing a File'
-        
+
         entry do
             command ':e[dit]'
             name 'Edit the current file'
@@ -83,7 +677,7 @@ cheatsheet do
 
     category do
         id 'Inserting Text'
-        
+
         entry do
             command 'a'
             name 'Append text after the cursor [count] times'
@@ -216,7 +810,7 @@ cheatsheet do
             END
         end
     end
-    
+
     category do
         id 'Substituting'
         entry do
@@ -332,7 +926,7 @@ cheatsheet do
 
     category do
         id 'Undo, Redo and Repeat'
-        
+
         entry do
             command 'u'
             name 'Undo [count] changes'
@@ -361,7 +955,7 @@ cheatsheet do
 
     category do
         id 'Moving Around'
-        
+
         entry do
             name 'Basic motion commands'
             notes <<-'END'
@@ -420,14 +1014,14 @@ cheatsheet do
         end
         entry do
             command 'g^'
-            name 'To the first non-blank character of the screen line (exclusive) when lines wrap (\'wrap\' on). Differs from `^` when a line is wider than the screen. 
+            name 'To the first non-blank character of the screen line (exclusive) when lines wrap (\'wrap\' on). Differs from `^` when a line is wider than the screen.
 
             To the leftmost non-blank character of the current line that is on the screen when lines don\'t wrap (\'wrap\' off). Differs from `^` when the first non-blank character of the line is not on the screen'
         end
         entry do
             command 'g$'
             command 'g<End>'
-            name 'To the last character of the screen line and [count - 1] screen lines downward (inclusive) when lines wrap (\'wrap\' on). Differs from `$` when a line is wider than the screen. 
+            name 'To the last character of the screen line and [count - 1] screen lines downward (inclusive) when lines wrap (\'wrap\' on). Differs from `$` when a line is wider than the screen.
 
             To the rightmost character of the current line that is visible on the screen when lines don\'t wrap (\'wrap\' off). Differs from `$` when the last character of the line is not on the screen or when a count is used'
         end
@@ -518,7 +1112,7 @@ cheatsheet do
             command 'gE'
             name 'Backward to the end of WORD [count]'
         end
-        
+
         entry do
             notes <<-'END'
             The following commands move over words or WORDS.
@@ -528,7 +1122,7 @@ cheatsheet do
             A WORD consists of a sequence of non-blank characters, separated with white space. An empty line is also considered to be a word and a WORD.
             END
         end
-    
+
         entry do
             command '('
             name '[count] sentences backward'
@@ -660,7 +1254,7 @@ cheatsheet do
 
     category do
         id 'Selecting Text (Visual Mode)'
-    
+
         entry do
             notes <<-'END'
             To select text, enter visual mode with one of the commands below, and use motion commands to highlight the text you are interested in. Then, use some command on the text.
@@ -699,7 +1293,7 @@ cheatsheet do
 
     category do
         id 'How to Suspend'
-    
+
         entry do
             command 'CTRL-Z'
             name 'Suspend Vim'
@@ -711,12 +1305,12 @@ cheatsheet do
             name 'Suspend Vim!'
             notes 'If the \'!\' is not given and \'autowrite\' is set, every buffer with changes and a file name is written out. If the \'!\' is given or \'autowrite\' is not set, changed buffers are not written, don\'t forget to bring Vim back to the foreground later!'
         end
-    
+
     end
 
     category do
         id 'Multiple Windows'
-        
+
         entry do
             command ':e filename'
             name 'Edit another file'
