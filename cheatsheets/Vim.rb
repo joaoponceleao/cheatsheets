@@ -786,7 +786,7 @@ cheatsheet do
             notes 'If a [count] is given, do that many characters'
         end
         entry do
-            command '~{motion}'
+            command 'g~{motion}'
             name 'Switch case of {motion} text'
         end
         entry do
@@ -1332,7 +1332,7 @@ cheatsheet do
         end
 
         entry do
-            command 'CTRL-W Up Arrow'
+            command 'CTRL-W Arrow Up'
             name 'Move cursor up a window'
         end
 

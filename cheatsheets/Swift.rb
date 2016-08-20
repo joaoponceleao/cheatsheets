@@ -53,20 +53,28 @@ cheatsheet do
         // Properties
         var myProperty: String
         var myOptionalProperty: String?
+        
+        // Public Property with Private Setter
+        // (e.g. for objects with public properties that can only be set internally)
+        public private(set) var myOtherProperty: String
+        public private(set) var myOtherOptionalProperty: String?
+        
         // Computed Properties
         var myInt: Int = 1
         var doubleInt: Int {
             get { return myInt * 2 }
             set { myInt = newValue / 2 }
         }
+        
         // Read-Only Computed Properties
         var tripleInt: Int {
             return myInt * 3
         }
+        
         // Property Observers
         var myOutput = 0 {
             willSet {
-                println("setting myOutput to \(newValue)")
+                print("setting myOutput to \(newValue)")
             }
             didSet { // never set greater than 10
                 if myOutput > 10 {
@@ -74,6 +82,40 @@ cheatsheet do
                 }
             }
         }
+        ```
+      END
+    end
+    
+    entry do
+      name 'Subscripts'
+      notes <<-'END'
+        ``` swift
+        struct HTMLElement {
+            var id = "hello"
+            var style = "color: red;"
+    
+            // Can have any number of parameters
+            // Can return any type
+            subscript(attr: String) -> String {
+                get {
+                    if attr == "id"    { return id    }
+                    if attr == "style" { return style }
+                    return ""
+                }
+
+                set {
+                    // "newValue" contains the... new value
+                    if attr == "id"    { id    = newValue }
+                    if attr == "style" { style = newValue }
+                }
+
+            }
+        }
+        
+        let el = HTMLElement()
+        print(el["id"])     // prints "hello"
+        el["style"] = "float: left;"
+        print(el["style"])  // prints "float: left;"
         ```
       END
     end
@@ -139,7 +181,7 @@ cheatsheet do
             var myProperty: String?
             // Methods with body
             func myMethod() {
-                println("Hello from protocol")
+                print("Hello from protocol")
             }
         }
         ```
@@ -164,7 +206,7 @@ cheatsheet do
         }
         let type = CollisionType.Player
         if type == .Player {
-            println("It's a Player")
+            print("It's a Player")
         }
         type.rawValue == 2 // false
 
@@ -176,21 +218,21 @@ cheatsheet do
         var something = Computer.Laptop(8, "i7")
         switch something {
         case .Laptop(let ram, let cpu):
-            println("It's a \(cpu) Laptop with \(ram) GB ram.")
+            print("It's a \(cpu) Laptop with \(ram) GB ram.")
         default:
-            println("What else can it be?")
+            print("What else can it be?")
         }
 
         // Check enum value with switch
         switch direction {
         case .North:
-            println("The direction is North")
+            print("The direction is North")
         case .East:
-            println("The direction is East")
+            print("The direction is East")
         case .South:
-            println("The direction is South")
+            print("The direction is South")
         case .West:
-            println("The direction is West")
+            print("The direction is West")
         // Either check for all cases or implement the default: case
         }
         ```
@@ -228,9 +270,9 @@ cheatsheet do
         let forced: String = s! // error if nil
 
         if let forced = s {
-          println(forced)
+          print(forced)
         } else {
-          println("not found")
+          print("not found")
         }
 
         let forced:String = s ?? "default value" //if (s == nil) use default value
@@ -248,6 +290,16 @@ cheatsheet do
         } else {
             // do something else
         }
+        
+        guard condition else {
+            // return or throw
+        }
+        
+        defer {
+            // execute when leaving scope
+            // regardless of how scope is left
+            print("Cleaning Up!")
+        }
 
         var val = 5
         switch val {
@@ -261,11 +313,11 @@ cheatsheet do
 
         let point = (1,1)
         switch point {
-          case (let x, 0): println("point on x with displacement of \(x)")
-          case (0, _): println("point on y")
-          case (1...5, 1...5): println("point within bounds")
-          case let (x,y) where x == y: println("point is on line")
-          case let (x,y): println("point out of bounds at \(x), \(y)")
+          case (let x, 0): print("point on x with displacement of \(x)")
+          case (0, _): print("point on y")
+          case (1...5, 1...5): print("point within bounds")
+          case let (x,y) where x == y: print("point is on line")
+          case let (x,y): print("point out of bounds at \(x), \(y)")
         }
 
         // omits upper value, use ... to include
@@ -284,6 +336,50 @@ cheatsheet do
                 }
             }
         }
+        ```
+      END
+    end
+    
+    entry do
+      name 'Error Handling'
+      notes <<-'END'
+        ``` swift
+        // ErrorType
+        enum MyError : ErrorType {
+            case Err1
+            case Err2(errDesc: String)
+        }
+
+        // Throwing
+        func throwingFunc() throws -> Int {
+            // You can propogate throw to calling function
+            try otherThrowingFunc()
+
+            // You can directly throw error
+            guard safeCondition == true else {
+                throw MyError.Err1
+            }
+        }
+
+        // do, try, catch
+        do {
+            // Perform any throwable operation in here
+            try throwingFunc()
+        } catch MyError.Err2(let desc) {
+            // Catches have same pattern matching capability as Enum cases
+            print(desc)
+        } catch {
+            // Catch anything that the above catches didn't catch
+            print("Some Error")
+        }
+
+        // try!, try?
+        
+        // Causes a runtime error when error is thrown
+        let result = try! throwingFunc()
+
+        // Returns the result of throwingFunc as an optional; nil on throw
+        let result: Int? = try? throwingFunc()
         ```
       END
     end
@@ -318,7 +414,7 @@ cheatsheet do
         var array: [String] = [person1, person2]
         array += ["Waldo"]
         for person in array {
-            println("person: \(person)")
+            print("person: \(person)")
         }
         let waldo = array[2]
         ```
@@ -333,7 +429,7 @@ cheatsheet do
         dict["Weirdo"] = "Felipe"
         dict["Frog"] = nil // delete frog
         for (type, muppet) in dict {
-            println("type: \(type), muppet: \(muppet)")
+            print("type: \(type), muppet: \(muppet)")
         }
         ```
       END
